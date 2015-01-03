@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ads</title>
+        <script src="libs/jquery.js"></script>
+        <script src="libs/angular.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="styles/main.css"/>
+    </head>
+    <body ng-app>
+        <header>
+            <h1>Ads - Home</h1>
+        </header>
+        <div id="wrapper">
+            <!--Left side panel-->
+            <div id="left-side-panel">
+                <!-- Navigation panel -->
+                <div id="navigationView" class="navView">
+                    <span>Navigation</span>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </div>
+
+                <!-- Authorize info panel -->
+                <div id="authorizeView" class="navView">
+                    <span>To publish a new add, please log in or register.</span>
+                    <ul>
+                        <li><a href="#">Log in</a></li>
+                        <li><a href="#">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Main panel-->
+            <div id="mainView">
+
+                <section class="ad">
+                    <h2>IPhone 6 for Sale</h2>
+                    <img src="http://www.independent.co.uk/incoming/article9754203.ece/alternates/w620/iphone6.jpg" alt=""/>
+                    <div class="ad-side-info">
+                        <span class="propName">Name:</span> {{"Viktor"}} <br>
+                        <span class="propName">Email:</span> {{"viki@mail.com"}} <br>
+                        <span class="propName">Tel.:</span> {{"088965354"}} <br>
+                        <span>
+                            A demonstration of what can be accomplished through CSS -based design. Select any style sheet from the list to load it into this page.
+                        </span>
+                    </div>
+
+                </section>
+
+                <section class="ad">
+                    <h2>Form Mustang for Sale</h2>
+                    <img src="http://www.pri.org/sites/default/files/story/images/mustang-paris-megathon-charlie.jpg" alt=""/>
+                    <div class="ad-side-info">
+                        <span class="propName">Name:</span> {{"Jimmy"}} <br>
+                        <span class="propName">Email:</span> {{"jimbo@gmail.com"}} <br>
+                        <span class="propName">Tel.:</span> {{"946 1558 663"}} <br>
+
+                        <span>
+                            1969 Ford Mustang Mach 1, San Jose built, California black plate car, Factory R-code, 4-speed.
+                            Black Jade with black interior, Rust free all original sheet metal!
+                        </span>
+                    </div>
+                </section>
+
+                <section class="ad">
+                    <h2>Brand new Baraka for Sale</h2>
+                    <img src="http://tinyhouseswoon.com/wp-content/uploads/2013/03/watershed-house-1.jpg" alt=""/>
+                    <div class="ad-side-info">
+                        <span class="propName">Name:</span> {{"Curt"}} <br>
+                        <span class="propName">Email:</span> {{"curt.lebis@gmail.com"}} <br>
+                        <span class="propName">Tel:</span> {{"8 6643 783"}} <br>
+
+                        <span>
+                            We are pleased to present to you this prestige regulated plot with a size of 1660 sq.m., which is on Cherni Vrah Blvd.
+                        </span>
+                    </div>
+                </section>
+            </div>
+
+            <!--Right side panel-->
+            <div id="right-side-panel" style="margin-right: 0">
+                <!-- Categories panel -->
+                <div id="categoriesView" class="navView">
+                    <span>Categories</span>
+                    <ul>
+                        <li><a href="#">All</a></li>
+                        <li><a href="#">Cars</a></li>
+                        <li><a href="#">Properties</a></li>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Jobs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Towns panel -->
+                <div id="townsView" class="navView">
+                    <span>Towns</span>
+                    <ul>
+                        <li><a href="#">Sofia</a></li>
+                        <li><a href="#">Plovdiv</a></li>
+                        <li class="active"><a href="#">New York</a></li>
+                        <li><a href="#">Montana</a></li>
+                        <li><a href="#">London</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

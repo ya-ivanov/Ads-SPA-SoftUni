@@ -1,0 +1,156 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4;
+}
+
+body{
+    background: url("./../images/bg.png") repeat;
+}
+
+#wrapper{
+    width: 960px;
+    margin: 20px auto;
+    min-height: 600px;
+    /*background: white;
+    box-shadow: rgb(170, 170, 170) 0px 1px 2px;*/
+}
+
+header{
+    width: 100%;
+    text-align: center;
+    height: auto;
+    background: white;
+    box-shadow: rgb(170, 170, 170) 0px 1px 2px;
+    color: #2F8ECE;
+}
+
+header > h1{
+    font-weight: lighter;
+}
+
+#wrapper #left-side-panel, #right-side-panel{
+    height: 100%;
+    display: inline-block;
+    float: left;
+    width: 230px;
+    margin-right: 10px;
+}
+
+#wrapper #navigationView, #authorizeView, #mainView, #categoriesView, #townsView{
+    background: white;
+    box-shadow: rgb(170, 170, 170) 0px 1px 2px;
+
+    padding: 5px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+#wrapper #navigationView > span,  #authorizeView > span, #categoriesView > span, #townsView > span{
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+#wrapper #navigationView ul, #authorizeView ul, #categoriesView ul, #townsView ul{
+    list-style-type: none;
+}
+
+#wrapper #navigationView ul li a, #authorizeView ul li a, #categoriesView ul li a, #townsView ul li a{
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#wrapper #navigationView ul li, #authorizeView ul li, #categoriesView ul li, #townsView ul li{
+    display: block;
+    border: 1px solid #2F8ECE;
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+#wrapper #navigationView ul li:hover,  #authorizeView ul li:hover, #categoriesView ul li:hover, #townsView ul li:hover, .navView .active{
+    background: #2F8ECE;
+    color: white;
+}
+
+#authorizeView span{
+    display: inline-block;
+    text-align: center;
+    font-size: 17px;
+}
+
+#mainView{
+    width: 475px;
+    float: left;
+    margin-right: 10px;
+}
+
+.ad{
+    padding: 5px;
+    padding-top: 0px;
+    margin-bottom: 10px;
+    display: block;
+    overflow: hidden;
+}
+
+.ad > h2{
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #2F8ECE;
+    margin-bottom: 5px;
+}
+
+.ad > img{
+    margin-top: 10px;
+    max-width: 150px;
+    max-height: 150px;
+    display: inline-block;
+    /*Experiment bellow*/
+    position: relative;
+    top: 50%;
+    transform: translateY(5%);
+}
+
+.ad-side-info{
+    display: inline-block;
+    width: 300px;
+    float: right;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.ad .ad-side-info > .propName{
+    width: 80px;
+    display: inline-block;
+}
+
+.ad .ad-side-info span:last-child{
+    width: 100%;
+    display: block;
+    margin-top: 5px;
+    background: #f3f3f3;
+}
+
+
+
+
+
+
+
+
+
+
+
