@@ -4,7 +4,9 @@
         <title>Ads - Home</title>
 
         <script>
-            var baseURL = 'http://softuni-ads.azurewebsites.net/api/';
+            //var baseURL = 'http://softuni-ads.azurewebsites.net/api/';
+            var baseURL = 'http://localhost:1337/api/';
+
             function changeTitle(title){
                 document.title = title;
                 document.querySelector('header > h1').innerHTML = title;
@@ -17,6 +19,19 @@
             function noImage(elem){
                 elem.setAttribute('src', 'images/no_image.png');
             }
+
+            function onSuccess(data){
+                console.log(data);
+            }
+
+            function onError(data){
+                console.log(data)
+            }
+
+            var headers = {
+                "Authorization": "Bearer " + JSON.parse(localStorage.getItem('user-data')).access_token
+            };
+
         </script>
         <script src="libs/jquery.js"></script>
         <script src="libs/angular.js"></script>

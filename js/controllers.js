@@ -6,19 +6,45 @@
 
     adsControllers.controller('AdListCtrl', ['$http', function ($http) {
         var self = this;
-
         self.allAds = [];
         changeTitle('Ads - Home');
 
-        $http.get(baseURL + "ads", {})
-            .success(function(data){
-                console.log(data);
-                self.allAds = data.ads;
-            })
-            .error(function(data){
-                console.error(data);
-            }
-        );
+        self.getAllAds = function(){
+            $http.get(baseURL + "ads", {headers:headers})
+                .success(function(data){
+                    console.log(data);
+                    self.allAds = data.ads;
+                })
+                .error(function(data){
+                    console.error(data);
+                }
+            );
+        };
+
+        self.deleteAd = function(adId){
+            console.log(headers);
+            $http.delete(baseURL + 'admin/ads/' + adId, {"headers":headers}).success(function(){
+                self.getAllAds();
+            }).error(onError);
+
+        };
+
+        self.createAd = function(){
+            $http.post(baseURL + 'user/ads',{
+
+                "title" : "Some Title",
+                "text" : "Some text"
+
+
+            }, {"headers":headers}).success(function(){
+                //self.getAllAds();
+            }).error(onError);
+        };
+
+
+        //self.createAd();
+        self.getAllAds();
+
     }]);
 
     adsControllers.controller('LoggedHeaderCtrl', ['$http', function ($http) {
@@ -27,6 +53,7 @@
 
         self.logOut = function(){
             localStorage.removeItem('user-data');
+            headers = null;
             reroute('#/home');
         }
 
@@ -47,6 +74,8 @@
                         password: self.password
                     })).success(function(data){
                     localStorage.setItem('user-data', JSON.stringify(data));
+                    console.log(data);
+                    headers = {"Authorization" : "Bearer " +  data.access_token};
                     reroute('#/home-logged');
                 }).error(function(data){
                     console.error(data);
@@ -111,5 +140,6 @@
         }
 
     }]);
+
 }());
 

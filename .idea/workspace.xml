@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91185c93-667f-4fe1-9018-20b70bbdf203" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partials/all-ads.html" afterPath="$PROJECT_DIR$/partials/all-ads.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers.js" afterPath="$PROJECT_DIR$/js/controllers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/main.css" afterPath="$PROJECT_DIR$/styles/main.css" />
     </list>
     <ignored path="Ads-SPA-SoftUni.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,21 +30,19 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="72" selection-start="310" selection-end="310" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="765">
+            <state line="6" column="14" selection-start="100" selection-end="100" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1020">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="0" selection-start="3845" selection-end="3845" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+            <state line="29" column="10" selection-start="863" selection-end="863" vertical-scroll-proportion="0.5173137" vertical-offset="0" max-vertical-offset="1479">
               <folding>
-                <element signature="e#137#523#0" expanded="false" />
-                <element signature="e#577#844#0" expanded="false" />
-                <element signature="e#891#1696#0" expanded="false" />
-                <element signature="e#1746#3835#0" expanded="false" />
+                <element signature="e#1277#1572#0" expanded="false" />
+                <element signature="e#2595#4684#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -58,10 +57,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all-ads.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="all-ads.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partials/all-ads.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="4" selection-start="56" selection-end="572" vertical-scroll-proportion="0.018338727" vertical-offset="0" max-vertical-offset="986">
+            <state line="10" column="56" selection-start="581" selection-end="581" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1003">
               <folding />
             </state>
           </provider>
@@ -100,10 +99,10 @@
         <option value="$PROJECT_DIR$/partials/header.html" />
         <option value="$PROJECT_DIR$/partials/header-logged.html" />
         <option value="$PROJECT_DIR$/styles/main.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/app.js" />
-        <option value="$PROJECT_DIR$/js/controllers.js" />
         <option value="$PROJECT_DIR$/partials/all-ads.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/controllers.js" />
       </list>
     </option>
   </component>
@@ -270,7 +269,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1098" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -335,10 +334,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="0" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="510">
           <folding>
-            <element signature="e#137#523#0" expanded="false" />
-            <element signature="e#577#844#0" expanded="false" />
-            <element signature="e#891#1696#0" expanded="false" />
-            <element signature="e#1746#3835#0" expanded="false" />
+            <element signature="e#1277#1572#0" expanded="false" />
+            <element signature="e#2595#4684#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -366,7 +363,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="4231" column="27" selection-start="183784" selection-end="183784" vertical-scroll-proportion="0.0" vertical-offset="71042" max-vertical-offset="72046">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -403,10 +400,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="97" selection-start="395" selection-end="395" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="238">
           <folding>
-            <element signature="n#style#0;n#div#0;n#header#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#header#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#header#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#header#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#header#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#header#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#header#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#header#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -425,29 +422,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers.js">
+    <entry file="file://$PROJECT_DIR$/partials/all-ads.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="0" selection-start="3845" selection-end="3845" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <folding>
-            <element signature="e#137#523#0" expanded="false" />
-            <element signature="e#577#844#0" expanded="false" />
-            <element signature="e#891#1696#0" expanded="false" />
-            <element signature="e#1746#3835#0" expanded="false" />
-          </folding>
+        <state line="10" column="56" selection-start="581" selection-end="581" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1003">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="72" selection-start="310" selection-end="310" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="765">
+        <state line="6" column="14" selection-start="100" selection-end="100" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1020">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partials/all-ads.html">
+    <entry file="file://$PROJECT_DIR$/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="4" selection-start="56" selection-end="572" vertical-scroll-proportion="0.018338727" vertical-offset="0" max-vertical-offset="986">
-          <folding />
+        <state line="29" column="10" selection-start="863" selection-end="863" vertical-scroll-proportion="0.5173137" vertical-offset="0" max-vertical-offset="1479">
+          <folding>
+            <element signature="e#1277#1572#0" expanded="false" />
+            <element signature="e#2595#4684#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
