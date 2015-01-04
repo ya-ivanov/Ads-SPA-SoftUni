@@ -1,0 +1,24 @@
+<div id="registerView" ng-controller="RegisterCtrl as regCtrl">
+    <label for="registerUsername">Username</label>
+    <input type="text" id="registerUsername" ng-model="regCtrl.username"/>
+    <label for="registerPassword">Password</label>
+    <input type="text" id="registerPassword" ng-model="regCtrl.password"/>
+    <label>Confirm password</label>
+    <input type="text" ng-model="regCtrl.password2"/>
+    <label>Name</label>
+    <input type="text" ng-model="regCtrl.fullName"/>
+    <label>Email</label>
+    <input type="text" ng-model="regCtrl.email"/>
+
+    <label>Phone number</label>
+    <input type="text" ng-model="regCtrl.phoneNumber"/>
+
+    <label>Town</label>
+    <select ng-model="regCtrl.town">
+        <option value="sofia" selected>Sofia</option>
+        <option value="varna">Varna</option>
+        <option value="washington">Washington</option>
+    </select>
+
+    <button class="button" ng-click="regCtrl.register()">Register</button>
+</div>
