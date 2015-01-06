@@ -1,0 +1,45 @@
+<div id="registerView" ng-controller="AdCreatorCtrl as creator">
+    <label for="adTitle">Title</label>
+    <input type="text" id="adTitle" ng-model="creator.title"/>
+    <label for="registerPassword">Text</label>
+    <input type="text" id="registerPassword" ng-model="creator.text"/>
+    <label>Image:</label>
+    <input type="file" id="chosenImage"/>
+    <input type="text" id="dataUrl" ng-model="creator.imageDataUrl"/>
+    <label>Town</label>
+    <select ng-controller="CityFilterCtrl as cityFilter">
+        <option ng-repeat="city in cityFilter.towns" value="{{city.id}}" ng-model="creator.townId">{{city.name}}</option>
+    </select>
+
+    <button class="button" ng-click="creator.createAd()">Publish ad</button>
+</div>
+
+
+<script>
+
+    function fileSelected(evt) {
+        var files = evt.target.files;
+        var type = '';
+        var fr = new FileReader();
+        fr.onload = function(event)
+        {
+            if(type.indexOf("image") == 0){
+                var d = event.target.result;
+                d = d.replace("data:;","data:" + type + ";");
+                console.log("<strong>Data URI: </strong>" + d);
+                document.getElementById('dataUrl').value =  d;
+            }
+        };
+
+        for (var i = 0, f; f = files[i]; i++) {
+            var fileCopy = f.slice(0, f.size);
+            type = f.type;
+            if(f.type.indexOf("image") == 0)
+                fr.readAsDataURL(fileCopy); //on successful read, fr.onload function will be called and that will populate the result in fileContent container
+        }
+    }
+
+    //attach change event of file control
+    document.getElementById('chosenImage').onchange = fileSelected;
+
+</script>

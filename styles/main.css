@@ -71,11 +71,11 @@ header li:hover{
     margin-bottom: 10px;
 }
 
-#wrapper #navigationView ul, #authorizeView ul, #categoriesView ul, #townsView ul{
+#wrapper #navigationView ul, #authorizeView ul, #categoriesView select, #townsView select{
     list-style-type: none;
 }
 
-#wrapper #navigationView ul li a, #authorizeView ul li a, #categoriesView ul li a, #townsView ul li a{
+#wrapper #navigationView ul li a, #authorizeView ul li a, #categoriesView select option, #townsView select option{
     text-decoration: none;
     padding: 5px;
     color: inherit;
@@ -84,7 +84,11 @@ header li:hover{
     display: block;
 }
 
-#wrapper #navigationView ul li, #authorizeView ul li, #categoriesView ul li, #townsView ul li{
+#categoriesView select, #townsView select{
+    padding: 5px;
+}
+
+#wrapper #navigationView ul li, #authorizeView ul li, #categoriesView select, #townsView select{
     display: block;
     border: 1px solid #2F8ECE;
     width: 90%;
@@ -117,6 +121,8 @@ header li:hover{
     margin-bottom: 10px;
     display: block;
     overflow: hidden;
+    background: white;
+    box-shadow: rgb(170, 170, 170) 0px 1px 2px;
 }
 
 .ad > h2{

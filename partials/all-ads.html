@@ -1,11 +1,12 @@
 <div id="ads" ng-controller="AdListCtrl as adCtrl">
     <section class="ad" ng-repeat="ad in adCtrl.allAds">
         <h2>{{ad.title}}</h2>
-        <img ng-src="{{ad.imageDataUrl}}" alt="No Image Found" onerror="noImage(this)"/>
+        <img ng-src="{{ad.imageDataUrl || 'images/no_image.png'}}" alt="No Image Found" onerror="noImage(this)"/>
         <div class="ad-side-info">
-            <span class="propName">Name:</span> {{ad.ownerName}} <br>
-            <span class="propName">Email:</span> {{ad.ownerEmail}} <br>
-            <span class="propName">Tel.:</span> {{ad.phone}} <br>
+            <span class="propName" ng-show="adCtrl.publicAds">Name:</span> {{ad.ownerName}} <br ng-show="adCtrl.publicAds">
+            <span class="propName" ng-show="adCtrl.publicAds">Email:</span> {{ad.ownerEmail}} <br ng-show="adCtrl.publicAds">
+            <span class="propName" ng-show="adCtrl.publicAds">Tel.:</span> {{ad.phone}} <br ng-show="adCtrl.publicAds">
+            <span class="propName" ng-show="ad.status">Status:</span> {{ad.status}} <br ng-show="ad.status"/>
             <span> {{ad.text}} </span>
         </div>
         <button ng-click="adCtrl.deleteAd(ad.id)">Delete</button>

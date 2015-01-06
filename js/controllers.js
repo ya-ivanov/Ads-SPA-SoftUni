@@ -7,7 +7,10 @@
     adsControllers.controller('AdListCtrl', ['$http', function ($http) {
         var self = this;
         self.allAds = [];
+        self.adsToLoad;
+        self.publicAds = true;
         changeTitle('Ads - Home');
+
 
         self.getAllAds = function(){
             $http.get(baseURL + "ads", {headers:headers})
@@ -21,29 +24,35 @@
             );
         };
 
+        self.getAllUserAds = function(){
+            $http.get(baseURL +  "user/ads", {headers:headers})
+                .success(function(data){
+                    console.log(data);
+                    self.allAds = data.ads;
+                })
+                .error(function(data){
+                    console.error(data);
+                }
+            );
+        };
+
         self.deleteAd = function(adId){
             console.log(headers);
             $http.delete(baseURL + 'admin/ads/' + adId, {"headers":headers}).success(function(){
-                self.getAllAds();
+                self.adsToLoad();
             }).error(onError);
 
         };
 
-        self.createAd = function(){
-            $http.post(baseURL + 'user/ads',{
-
-                "title" : "Some Title",
-                "text" : "Some text"
-
-
-            }, {"headers":headers}).success(function(){
-                //self.getAllAds();
-            }).error(onError);
-        };
-
-
-        //self.createAd();
-        self.getAllAds();
+        if (window.location.hash == "#/user/ads"){
+            self.publicAds = false;
+            self.getAllUserAds();
+            self.adsToLoad = self.getAllUserAds;
+        } else {
+            self.publicAds = true;
+            self.getAllAds();
+            self.adsToLoad = self.getAllAds;
+        }
 
     }]);
 
@@ -139,6 +148,53 @@
             });
         }
 
+    }]);
+
+    adsControllers.controller('CategoryFilterCtrl', ['$http', function($http){
+        var self = this;
+        self.categories = [];
+
+        self.getAllCategories = function(){
+            $http.get(baseURL + 'categories').success(function(data){
+                self.categories = data;
+            }).error(onError);
+        }();
+    }]);
+
+    adsControllers.controller('CityFilterCtrl', ['$http', function($http){
+        var self = this;
+        self.towns = [];
+
+        self.getAllTowns = function(){
+            $http.get(baseURL + 'towns').success(function(data){
+                self.towns = data;
+            }).error(onError);
+        }();
+    }]);
+
+    adsControllers.controller('AdCreatorCtrl', ['$http', function($http){
+        var self = this;
+        self.title = "";
+        self.text = "";
+        self.categoryId  = "";
+        self.townId  = "";
+
+        self.createAd = function(){
+            self.imageUrlData = document.getElementById('dataUrl').value;
+
+            $http.post(baseURL + 'user/ads',{
+                    "title" : self.title,
+                    "text" : self.text,
+                    "imageDataUrl" : self.imageUrlData,
+                    "categoryId" : self.categoryId,
+                    "townId" : self.townId
+                },
+                {"headers":headers})
+            .success(function(data){
+                console.log(data)
+            }
+            ).error(onError);
+        };
     }]);
 
 }());
