@@ -64,6 +64,15 @@
                     "right-side-view": { templateUrl: "./partials/right-side-panel.html" },
                     "header" : { templateUrl: "./partials/header-logged.html"}
                 }
+            }).state('user-ads-edit', {
+                url: "/user/ads/edit/",
+                views: {
+                    "mainView": { templateUrl: "./partials/edit-ad.html" },
+                    "left-side-view": { templateUrl: "./partials/left-side-panel-loged.html" },
+                    //"right-side-view": { templateUrl: "./partials/right-side-panel.html" },
+                    "header" : { templateUrl: "./partials/header-logged.html"}
+                }
             })
+
     });
 }());

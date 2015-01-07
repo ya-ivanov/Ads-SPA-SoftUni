@@ -193,7 +193,24 @@ header li:hover{
     margin-top: 5px;
 }
 
+#editAdView{
+    padding: 10px;
+}
 
+#editAdView input, #editAdView textarea, #editAdView select{
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+#editAdView textarea{
+    height: 100px;
+}
+
+#editAdView label{
+    display: block;
+    margin-bottom: 5px;
+}
 
 
 

@@ -36,13 +36,9 @@
             );
         };
 
-        self.deleteAd = function(adId){
-            console.log(headers);
-            $http.delete(baseURL + 'admin/ads/' + adId, {"headers":headers}).success(function(){
-                self.adsToLoad();
-            }).error(onError);
 
-        };
+
+
 
         if (window.location.hash == "#/user/ads"){
             self.publicAds = false;
@@ -53,6 +49,8 @@
             self.getAllAds();
             self.adsToLoad = self.getAllAds;
         }
+
+
 
     }]);
 
@@ -191,10 +189,79 @@
                 },
                 {"headers":headers})
             .success(function(data){
-                console.log(data)
+                reroute('#user/ads');
             }
             ).error(onError);
         };
+    }]);
+
+    adsControllers.controller('AdEditorCtrl', ['$http', function($http){
+        var self = this;
+
+        self.id = window.location.hash.substr(window.location.hash.lastIndexOf('/#')+2);
+        self.adToEdit = {};
+        self.action = 'edit';
+        self.changeImage = false;
+
+
+        self.getAd = function(id){
+            $http.get(baseURL + "user/ads/" + id, {headers:headers})
+                .success(function(data){
+                    console.log(data);
+                    self.adToEdit = data;
+                    self.newCity = self.adToEdit.townId;
+                    self.newCategory = self.adToEdit.categoryId;
+                })
+                .error(function(data){
+                    console.error(data);
+                }
+            );
+        };
+
+        self.deleteAd = function(){
+            $http.delete(baseURL + 'user/ads/' + self.id, {"headers":headers}).success(function(){
+                reroute('#user/ads')
+            }).error(onError);
+        };
+
+        self.editAd = function(title, text, changeImage, imageDataUrl, categoryId, townId){
+            $http.put(baseURL + 'user/ads/' + self.id, {
+                "title":title,
+                "text": text,
+                "changeImage" : changeImage,
+                "imageDataUrl": imageDataUrl,
+                "categoryId" : categoryId,
+                "townId":townId
+            }, {"headers":headers}).success(function(){
+                reroute('#user/ads')
+            }).error(onError);
+        };
+
+        self.doAction = function(){
+            var sure;
+            if (self.action == 'delete'){
+                sure = confirm('Delete ad?');
+                sure ? self.deleteAd() : reroute('#user/ads');
+            } else if (self.action == 'edit'){
+                //console.log(self.newCity);
+
+                sure = confirm('Edit ad?');
+                sure ? self.editAd(
+                    self.adToEdit.title,
+                    self.adToEdit.text,
+                    false,
+                    self.adToEdit.imageDataUrl,
+                    self.newCategory,
+                    self.newCity
+                ) : reroute('#user/ads');
+            }
+
+        };
+
+        self.getAd(self.id);
+
+
+
     }]);
 
 }());

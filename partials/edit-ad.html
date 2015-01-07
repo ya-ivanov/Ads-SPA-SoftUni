@@ -1,0 +1,34 @@
+<div id="editAdView" ng-controller="AdEditorCtrl as adEditor">
+
+    <div class="adImage" style="max-width:150px;position: absolute; margin-top: -15px; margin-left: 470px; background: white; padding: 10px; text-align: center; box-shadow: rgb(170, 170, 170) 0px 1px 2px">
+        <img ng-src="{{adEditor.adToEdit.imageDataUrl || 'images/no_image.png'}}" alt="Ad Image" style="max-width: 90%; max-height: 90%; border: 1px solid gray"/><br>
+        <button class="button" >Change</button>
+        <button class="button" ng-click="adEditor.changeImage = true">Remove</button>
+    </div>
+
+    <label for="adName">Title</label>
+    <input type="text" ng-model="adEditor.adToEdit.title" id="adName"/><br>
+    <label for="adText">Text</label>
+    <textarea type="text" ng-model="adEditor.adToEdit.text" id="adText">{{adEditor.adToEdit.text}}</textarea><br>
+
+    <label>Categories</label>
+    <select ng-controller="CategoryFilterCtrl as categoryFilter"  ng-model="adEditor.newCategory">
+        <option ng-repeat="category in categoryFilter.categories" value="{{category.id}}" ng-selected="category.name == adEditor.adToEdit.categoryName">{{category.name}}</option>
+    </select>
+
+    <span>Towns</span>
+    <select ng-controller="CityFilterCtrl as cityFilter" ng-model="adEditor.newCity">
+        <option ng-repeat="city in cityFilter.towns" value="{{city.id}}" ng-selected="city.name == adEditor.adToEdit.townName">{{city.name}}</option>
+    </select>
+
+    <span>Options: </span>
+    <select style="display: inline-block" ng-model="adEditor.action">
+        <option value="edit">Edit</option>
+        <option value="delete">Delete</option>
+        <option value="deactivate">Deactivate</option>
+        <option value="rePublish">Publish Again</option>
+    </select>
+
+    <button class="button" style="width: 100px" ng-click="adEditor.doAction()">GO</button>
+
+</div>

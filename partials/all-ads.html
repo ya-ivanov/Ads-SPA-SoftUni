@@ -1,6 +1,8 @@
 <div id="ads" ng-controller="AdListCtrl as adCtrl">
     <section class="ad" ng-repeat="ad in adCtrl.allAds">
         <h2>{{ad.title}}</h2>
+
+        <a href="#/user/ads/edit/#{{ad.id}}" ng-click="adCtrl.editAd(ad.id)" ng-hide="adCtrl.publicAds" style="position:absolute;margin-top:-5px; margin-left: 430px; background: url('images/gear.png'); background-size: cover;height: 25px;display: inline-block;color: transparent;">Edit</a>
         <img ng-src="{{ad.imageDataUrl || 'images/no_image.png'}}" alt="No Image Found" onerror="noImage(this)"/>
         <div class="ad-side-info">
             <span class="propName" ng-show="adCtrl.publicAds">Name:</span> {{ad.ownerName}} <br ng-show="adCtrl.publicAds">
@@ -9,47 +11,5 @@
             <span class="propName" ng-show="ad.status">Status:</span> {{ad.status}} <br ng-show="ad.status"/>
             <span> {{ad.text}} </span>
         </div>
-        <button ng-click="adCtrl.deleteAd(ad.id)">Delete</button>
     </section>
-
-   <!-- <section class="ad">
-        <h2>IPhone 6 for Sale</h2>
-        <img src="http://www.independent.co.uk/incoming/article9754203.ece/alternates/w620/iphone6.jpg" alt=""/>
-        <div class="ad-side-info">
-            <span class="propName">Name:</span> {{"Viktor"}} <br>
-            <span class="propName">Email:</span> {{"viki@mail.com"}} <br>
-            <span class="propName">Tel.:</span> {{"088965354"}} <br>
-            <span>
-                A demonstration of what can be accomplished through CSS -based design. Select any style sheet from the list to load it into this page.
-            </span>
-        </div>
-    </section>
-
-    <section class="ad">
-        <h2><a href="#/ad:Form Mustang for Sale">Form Mustang for Sale</a></h2>
-        <img src="http://www.pri.org/sites/default/files/story/images/mustang-paris-megathon-charlie.jpg" alt=""/>
-        <div class="ad-side-info">
-            <span class="propName">Name:</span> {{"Jimmy"}} <br>
-            <span class="propName">Email:</span> {{"jimbo@gmail.com"}} <br>
-            <span class="propName">Tel.:</span> {{"946 1558 663"}} <br>
-            <span>
-                1969 Ford Mustang Mach 1, San Jose built, California black plate car, Factory R-code, 4-speed.
-                Black Jade with black interior, Rust free all original sheet metal!
-            </span>
-        </div>
-    </section>
-
-    <section class="ad">
-        <h2>Brand new Baraka for Sale</h2>
-        <img src="http://tinyhouseswoon.com/wp-content/uploads/2013/03/watershed-house-1.jpg" alt=""/>
-        <div class="ad-side-info">
-            <span class="propName">Name:</span> {{"Curt"}} <br>
-            <span class="propName">Email:</span> {{"curt.lebis@gmail.com"}} <br>
-            <span class="propName">Tel:</span> {{"8 6643 783"}} <br>
-
-            <span>
-                We are pleased to present to you this prestige regulated plot with a size of 1660 sq.m., which is on Cherni Vrah Blvd.
-            </span>
-        </div>
-    </section>-->
 </div>

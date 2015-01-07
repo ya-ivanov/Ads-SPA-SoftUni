@@ -5,10 +5,15 @@
     <input type="text" id="registerPassword" ng-model="creator.text"/>
     <label>Image:</label>
     <input type="file" id="chosenImage"/>
-    <input type="text" id="dataUrl" ng-model="creator.imageDataUrl"/>
+    <input type="text" id="dataUrl" ng-model="creator.imageDataUrl" style="display: none"/>
     <label>Town</label>
-    <select ng-controller="CityFilterCtrl as cityFilter">
-        <option ng-repeat="city in cityFilter.towns" value="{{city.id}}" ng-model="creator.townId">{{city.name}}</option>
+    <select ng-controller="CityFilterCtrl as cityFilter" ng-model="creator.townId">
+        <option ng-repeat="city in cityFilter.towns" value="{{city.id}}" >{{city.name}}</option>
+    </select>
+
+    <label>Categories</label>
+    <select ng-controller="CategoryFilterCtrl as categoryFilter"  ng-model="creator.categoryId">
+        <option ng-repeat="category in categoryFilter.categories" value="{{category.id}}">{{category.name}}</option>
     </select>
 
     <button class="button" ng-click="creator.createAd()">Publish ad</button>
