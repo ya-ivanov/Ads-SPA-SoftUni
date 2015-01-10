@@ -81,7 +81,7 @@ header li:hover{
     margin-top: 5px;
 }
 
-#wrapper #navigationView, #authorizeView, #mainView, #categoriesView, #townsView{
+#wrapper #navigationView, #authorizeView, #mainView, #categoriesView, #townsView, #adminView{
     background: white;
     box-shadow: rgb(170, 170, 170) 0px 1px 2px;
     padding: 5px;
@@ -110,11 +110,11 @@ header li:hover{
     display: block;
 }
 
-#categoriesView select, #townsView select{
+#categoriesView select, #townsView select, #adminView select{
     padding: 5px;
 }
 
-#wrapper #navigationView ul li, #authorizeView ul li, #categoriesView select, #townsView select{
+#wrapper #navigationView ul li, #authorizeView ul li, #categoriesView select, #townsView select, #adminView select{
     display: block;
     border: 1px solid #2F8ECE;
     width: 90%;
@@ -288,3 +288,20 @@ header li:hover{
 .custom-file-input:active::before {
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
+
+
+
+#adminView section{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+

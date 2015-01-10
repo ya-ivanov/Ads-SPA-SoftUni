@@ -1,0 +1,46 @@
+<div id="adminView" ng-controller="AdminCtrl as admin">
+
+    <select ng-model="admin.toManage">
+        <option value="pick" selected>Chose what to manage...</option>
+        <option value="categories">Manage Categories</option>
+        <option value="towns">Manage Towns</option>
+        <option value="users">Manage Users</option>
+        <option value="ads">Manage Ads</option>
+    </select>
+
+    <section ng-show="admin.toManage == 'categories'">
+        <div class="category" ng-repeat="category in admin.categories">
+            <span style="float: left">{{category.name}}</span>
+            <span style="float: right; cursor: pointer; margin-left: 10px;" ng-click="admin.deleteCategories(category.id)">Delete </span>
+            <span style="float: right; cursor: pointer" ng-click="admin.editCategories(category.id)">Edit </span><br>
+            <hr/>
+        </div>
+
+        <input type="text" ng-model="admin.newCategoryName" placeholder="New category name..."/>
+        <button ng-show="admin.newCategoryName.length >= 3" ng-click="admin.createCategory(admin.newCategoryName)">Create category</button>
+    </section>
+
+    <section ng-show="admin.toManage == 'towns'">
+        <div class="category" ng-repeat="town in admin.towns">
+            <span style="float: left">{{town.name}}</span>
+            <span style="float: right; cursor: pointer; margin-left: 10px;" ng-click="admin.deleteTown(town.id)">Delete </span>
+            <span style="float: right; cursor: pointer" ng-click="admin.editTown(town.id)">Edit </span><br>
+            <hr/>
+        </div>
+
+        <input type="text" ng-model="admin.newTownName" placeholder="New town name..."/>
+        <button ng-show="admin.newTownName.length >= 3" ng-click="admin.createTown(admin.newTownName)">Create town</button>
+    </section>
+
+    <section ng-show="admin.toManage == 'users'">
+        <div class="category" ng-repeat="user in admin.users">
+            <span style="float: left">{{user.email}}</span>
+            <span style="float: right; cursor: pointer; margin-left: 10px;" ng-click="admin.deleteUser(user.username)">Delete</span><br>
+            <hr/>
+        </div>
+    </section>
+
+    <section ng-show="admin.toManage == 'ads'">
+        TODO
+    </section>
+</div>

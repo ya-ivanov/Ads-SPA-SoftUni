@@ -122,7 +122,7 @@
                 if (self.fullName.trim() == ""){ errors.push('Full name field can\'t be empty'); }
 
                 if (errors.length > 0){
-                    showErrorMessage(errors.join('\n'));
+                    showErrorMessage(errors.join('<br>'));
                     errors = [];
                     return;
                 }
@@ -132,7 +132,7 @@
                 if (self.password != self.password2) { errors.push('Passwords don\'t match.'); }
 
                 if (errors.length > 0){
-                    showErrorMessage(errors.join('\n'));
+                    showErrorMessage(errors.join('<br>'));
                     errors = [];
                     return;
                 }
@@ -400,6 +400,101 @@
             }
         }
 
+    }]);
+
+    adsControllers.controller('AdminCtrl', ['$http', function($http){
+        if (!isAdmin()){
+            reroute('#/home-logged'); console.log('not allowed here');
+        } else {
+            changeTitle('Ads - Admin panel');
+            var self = this;
+            self.toManage = 'pick';
+            self.categories = [];
+            self.towns = [];
+            self.users = [];
+
+
+            self.loadCategories = function(){
+                $http.get(baseURL + 'categories').success(function(data){
+                    self.categories = data;
+                }).error(onError);
+            };
+
+            self.deleteCategories = function(id){
+                $http.delete(baseURL + 'admin/Categories/' + id, {'headers': headers}).success(function(data){
+                    self.loadCategories();
+                    showInfoMessage('Category successfully deleted.');
+                }).error(onError);
+            };
+
+            self.createCategory = function(name){
+                $http.post(baseURL + 'admin/Categories', {
+                    "name" : name
+                },  {'headers': headers}).success(function(data){
+                    showInfoMessage('Category "' + name + '" successfully created.');
+                    self.loadCategories();
+                    self.newCategoryName = '';
+                }).error(onError);
+            };
+
+            self.editCategories = function(id){
+                var newName = prompt("Enter new name for the category:");
+                $http.put(baseURL + 'admin/Categories/' + id, {'name' : newName}, {'headers': headers}).success(function(data){
+                    self.loadCategories();
+                    showInfoMessage('Category successfully edited.');
+                }).error(onError);
+            };
+
+            self.loadTowns = function(){
+                $http.get(baseURL + 'towns').success(function(data){
+                    self.towns = data;
+                }).error(onError);
+            };
+
+            self.deleteTown = function(id){
+                $http.delete(baseURL + 'admin/Towns/' + id, {'headers': headers}).success(function(data){
+                    self.loadTowns();
+                    showInfoMessage('Town successfully deleted.');
+                }).error(onError);
+            };
+
+            self.createTown = function(name){
+                $http.post(baseURL + 'admin/Towns', {
+                    "name" : name
+                },  {'headers': headers}).success(function(data){
+                    showInfoMessage('Town "' + name + '" successfully created.');
+                    self.loadTowns();
+                    self.newTownName = '';
+                }).error(onError);
+            };
+
+            self.editTown = function(id){
+                var newName = prompt("Enter new name for the town:");
+                $http.put(baseURL + 'admin/Towns/' + id, {'name' : newName}, {'headers': headers}).success(function(data){
+                    self.loadTowns();
+                    showInfoMessage('Town successfully edited.');
+                }).error(onError);
+            };
+
+            self.loadUsers = function(){
+                $http.get(baseURL + 'admin/Users?PageSize=50', {'headers' : headers}).success(function(data){
+                    self.users = data.users;
+                    console.log(data)
+                }).error(onError);
+            };
+
+            self.deleteUser = function(id){
+                $http.delete(baseURL + 'admin/Users/' + id, {'headers': headers}).success(function(data){
+                    self.loadCategories();
+                    showInfoMessage('User successfully deleted.');
+                }).error(onError);
+            };
+
+
+            self.loadCategories();
+            self.loadTowns();
+            self.loadUsers();
+        }
     }]);
 
 }());
