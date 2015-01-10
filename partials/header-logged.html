@@ -2,7 +2,7 @@
     <h1>Ads - Home</h1>
     <div style="position: absolute; top: 10px; right: 20px;" ng-controller="LoggedHeaderCtrl as headCtrl">
         <ul style="list-style-type: none;">
-            <li style="display: inline-block; margin-right: 10px"><a href="#/user">{{headCtrl.username}}</a></li>
+            <li style="display: inline-block; margin-right: 10px"><a href="javascript:usernameClick()">{{headCtrl.username}}</a></li>
             <li style="display: inline-block"><a href="#/user/logout" ng-click="headCtrl.logOut()">Log Out</a></li>
         </ul>
     </div>

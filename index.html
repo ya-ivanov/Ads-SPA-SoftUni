@@ -35,7 +35,9 @@
             }
 
             function isAdmin(){
-                return JSON.parse(localStorage.getItem('user-data')).isAdmin ? true : false;
+                try {
+                    return JSON.parse(localStorage.getItem('user-data')).isAdmin ? true : false;
+                } catch(E) { return false}
             }
 
             function showErrorMessage(msg) {
@@ -54,6 +56,10 @@
                     layout: 'topCenter',
                     timeout: 3000}
                 );
+            }
+
+            function usernameClick(){
+                !isAdmin() ? window.location.href = '#/user/ads' : window.location.href = '#/admin/panel';
             }
 
             try {var headers = {
@@ -82,7 +88,6 @@
             </div>
             <div ui-view="right-side-view"></div>
         </div>
-
 
     </body>
 </html>

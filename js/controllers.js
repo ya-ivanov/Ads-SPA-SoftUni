@@ -5,49 +5,69 @@
     var adsControllers = angular.module('adsControllers', []);
 
     adsControllers.controller('AdListCtrl', ['$http', function ($http) {
-        var self = this;
-        self.allAds = [];
-        self.adsToLoad;
-        self.publicAds = true;
-        changeTitle('Ads - Home');
-
-
-        self.getAllAds = function(){
-            $http.get(baseURL + "ads", {headers:headers})
-                .success(function(data){
-                    console.log(data);
-                    self.allAds = data.ads;
-                })
-                .error(function(data){
-                    console.error(data);
-                }
-            );
-        };
-
-        self.getAllUserAds = function(){
-            $http.get(baseURL +  "user/ads", {headers:headers})
-                .success(function(data){
-                    console.log(data);
-                    self.allAds = data.ads;
-                })
-                .error(function(data){
-                    console.error(data);
-                }
-            );
-        };
-
-        if (window.location.hash == "#/user/ads"){
-            self.publicAds = false;
-            self.getAllUserAds();
-            self.adsToLoad = self.getAllUserAds;
+        if (isLogged() && window.location.hash == '#/home'){
+            reroute('#/home-logged'); console.log('not allowed here');
+            return;
         } else {
+            var self = this;
+            self.allAds = [];
+            self.adsToLoad;
             self.publicAds = true;
-            self.getAllAds();
-            self.adsToLoad = self.getAllAds;
+            self.currentPage = 1;
+            changeTitle('Ads - Home');
+
+
+            self.getAllAds = function(){
+                $http.get(baseURL + "ads?pageSize=1&StartPage=" + self.currentPage, {headers:headers})
+                    .success(function(data){
+                        console.log(data);
+                        self.allAds = data.ads;
+                    })
+                    .error(function(data){
+                        console.error(data);
+                    }
+                );
+            };
+
+            self.getAllUserAds = function(){
+                $http.get(baseURL +  "user/ads?pageSize=1&StartPage=" + self.currentPage, {headers:headers})
+                    .success(function(data){
+                        console.log(data);
+                        self.allAds = data.ads;
+                    })
+                    .error(function(data){
+                        console.error(data);
+                    }
+                );
+            };
+
+            self.loadPage = function(type){
+                if (type == '+') self.currentPage++;
+                else self.currentPage--;
+
+                $http.get(baseURL + (self.publicAds ? 'ads?' : "user/ads?") + "pageSize=1&StartPage=" + (self.currentPage), {headers:headers})
+                    .success(function(data){
+                        console.log(data);
+                        self.allAds = [];
+                        self.allAds = data.ads;
+                    })
+                    .error(function(data){
+                        console.error(data);
+                    }
+                );
+            };
+
+            if (window.location.hash == "#/user/ads"){
+                self.publicAds = false;
+                self.getAllUserAds();
+                self.adsToLoad = self.getAllUserAds;
+            } else {
+                self.publicAds = true;
+                self.getAllAds();
+                self.adsToLoad = self.getAllAds;
+            }
+
         }
-
-
-
     }]);
 
     adsControllers.controller('LoggedHeaderCtrl', ['$http', function ($http) {
@@ -85,8 +105,11 @@
                         localStorage.setItem('user-data', JSON.stringify(data));
                         console.log(data);
                         headers = {"Authorization" : "Bearer " +  data.access_token};
+
+
                         reroute('#/home-logged');
                         showInfoMessage('Successfully logged in.');
+
                     }).error(function(data){
                         console.error(data);
                     });
