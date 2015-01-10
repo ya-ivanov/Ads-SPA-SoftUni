@@ -1,0 +1,16 @@
+<div id="editProfileView" ng-controller="EditProfileCtrl as profileCtrl">
+    <label for="name">Name</label>
+    <input type="text" id="name" ng-model="profileCtrl.name"/> <br>
+    <label for="email">Email</label>
+    <input type="text" id="email" ng-model="profileCtrl.email"/><br>
+    <label for="phone">Phone number</label>
+    <input type="text" id="phone" ng-model="profileCtrl.phoneNumber"/><br>
+
+    <label>Town</label>
+    <select ng-controller="CityFilterCtrl as cityFilter" ng-model="profileCtrl.townId">
+        <option ng-repeat="city in cityFilter.towns" value="{{city.id}}" ng-selected="city.id == profileCtrl.townId">{{city.name}}</option>
+    </select><br>
+
+    <button class="button" ng-click="profileCtrl.updateUser()">Update</button>
+    <button class="button" ng-click="profileCtrl.cancel()">Cancel</button>
+</div>

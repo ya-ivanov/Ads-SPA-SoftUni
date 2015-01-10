@@ -61,7 +61,7 @@
                 views: {
                     "mainView": { templateUrl: "./partials/publish-ad.html" },
                     "left-side-view": { templateUrl: "./partials/left-side-panel-loged.html" },
-                    "right-side-view": { templateUrl: "./partials/right-side-panel.html" },
+                    //"right-side-view": { templateUrl: "./partials/right-side-panel.html" },
                     "header" : { templateUrl: "./partials/header-logged.html"}
                 }
             }).state('user-ads-edit', {
@@ -72,7 +72,16 @@
                     //"right-side-view": { templateUrl: "./partials/right-side-panel.html" },
                     "header" : { templateUrl: "./partials/header-logged.html"}
                 }
+            }).state('user-profile-edit', {
+                url: "/user/profile",
+                views: {
+                    "mainView": { templateUrl: "./partials/edit-profile.html" },
+                    "left-side-view": { templateUrl: "./partials/left-side-panel-loged.html" },
+                    "header" : { templateUrl: "./partials/header-logged.html"},
+                    "right-side-view": { templateUrl: "./partials/change-password.html" }
+                }
             })
 
     });
 }());
+

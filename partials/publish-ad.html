@@ -1,11 +1,14 @@
 <div id="registerView" ng-controller="AdCreatorCtrl as creator">
+
+    <div class="adImage" style="max-width:150px;position: absolute; margin-top: -4px; margin-left: 485px; background: white; padding: 10px; text-align: center; box-shadow: rgb(170, 170, 170) 0px 1px 2px">
+        <img ng-src="{{creator.imageDataUrl || 'images/no_image.png'}}" alt="Ad Image" style="max-width: 90%; max-height: 90%; border: 1px solid gray"/>
+    </div>
+
     <label for="adTitle">Title</label>
     <input type="text" id="adTitle" ng-model="creator.title"/>
     <label for="registerPassword">Text</label>
     <input type="text" id="registerPassword" ng-model="creator.text"/>
-    <label>Image:</label>
-    <input type="file" id="chosenImage"/>
-    <input type="text" id="dataUrl" ng-model="creator.imageDataUrl" style="display: none"/>
+
     <label>Town</label>
     <select ng-controller="CityFilterCtrl as cityFilter" ng-model="creator.townId">
         <option ng-repeat="city in cityFilter.towns" value="{{city.id}}" >{{city.name}}</option>
@@ -15,10 +18,13 @@
     <select ng-controller="CategoryFilterCtrl as categoryFilter"  ng-model="creator.categoryId">
         <option ng-repeat="category in categoryFilter.categories" value="{{category.id}}">{{category.name}}</option>
     </select>
+    <br>
+    <label>Image:</label>
+    <input type="file" id="chosenImage" class="custom-file-input"/>
+    <input type="text" id="dataUrl" ng-model="creator.imageDataUrl" style="display: none"/>
 
     <button class="button" ng-click="creator.createAd()">Publish ad</button>
 </div>
-
 
 <script>
 
@@ -33,6 +39,7 @@
                 d = d.replace("data:;","data:" + type + ";");
                 console.log("<strong>Data URI: </strong>" + d);
                 document.getElementById('dataUrl').value =  d;
+                document.querySelector('.adImage img').src= d;
             }
         };
 
@@ -42,6 +49,8 @@
             if(f.type.indexOf("image") == 0)
                 fr.readAsDataURL(fileCopy); //on successful read, fr.onload function will be called and that will populate the result in fileContent container
         }
+
+
     }
 
     //attach change event of file control

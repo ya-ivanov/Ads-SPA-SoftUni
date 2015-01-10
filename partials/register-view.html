@@ -14,10 +14,8 @@
     <input type="text" ng-model="regCtrl.phoneNumber"/>
 
     <label>Town</label>
-    <select ng-model="regCtrl.town">
-        <option value="sofia" selected>Sofia</option>
-        <option value="varna">Varna</option>
-        <option value="washington">Washington</option>
+    <select ng-controller="CityFilterCtrl as cityFilter" ng-model="regCtrl.town">
+        <option ng-repeat="city in cityFilter.towns" value="{{city.id}}" >{{city.name}}</option>
     </select>
 
     <button class="button" ng-click="regCtrl.register()">Register</button>

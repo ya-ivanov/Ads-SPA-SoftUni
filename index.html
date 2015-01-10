@@ -2,10 +2,11 @@
 <html>
     <head>
         <title>Ads - Home</title>
-
+        <script src="libs/jquery.js"></script>
+        <script src="libs/jquery.noty.js"></script>
         <script>
-            //var baseURL = 'http://softuni-ads.azurewebsites.net/api/';
-            var baseURL = 'http://localhost:1337/api/';
+            var baseURL = 'http://softuni-ads.azurewebsites.net/api/';
+            //var baseURL = 'http://localhost:1337/api/';
 
             function changeTitle(title){
                 document.title = title;
@@ -25,18 +26,48 @@
             }
 
             function onError(data){
-                console.log(data)
+                showErrorMessage(data.message);
+                console.log(data);
             }
 
-            var headers = {
+            function isLogged(){
+                return localStorage.getItem('user-data') ? true : false;
+            }
+
+            function isAdmin(){
+                return JSON.parse(localStorage.getItem('user-data')).isAdmin ? true : false;
+            }
+
+            function showErrorMessage(msg) {
+                noty({
+                    text: msg,
+                    type: 'error',
+                    layout: 'topCenter',
+                    timeout: 3000}
+                );
+            }
+
+            function showInfoMessage(msg) {
+                noty({
+                    text: msg,
+                    type: 'info',
+                    layout: 'topCenter',
+                    timeout: 3000}
+                );
+            }
+
+            try {var headers = {
                 "Authorization": "Bearer " + JSON.parse(localStorage.getItem('user-data')).access_token
-            };
+            };}catch (E){}
+
 
         </script>
-        <script src="libs/jquery.js"></script>
+
         <script src="libs/angular.js"></script>
         <script src="libs/angular-ui-router.js"></script>
+
         <script src="js/app.js"></script>
+
         <script src="js/controllers.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="styles/main.css"/>
@@ -51,5 +82,7 @@
             </div>
             <div ui-view="right-side-view"></div>
         </div>
+
+
     </body>
 </html>

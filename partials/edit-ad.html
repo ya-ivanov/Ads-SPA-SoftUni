@@ -2,8 +2,8 @@
 
     <div class="adImage" style="max-width:150px;position: absolute; margin-top: -15px; margin-left: 470px; background: white; padding: 10px; text-align: center; box-shadow: rgb(170, 170, 170) 0px 1px 2px">
         <img ng-src="{{adEditor.adToEdit.imageDataUrl || 'images/no_image.png'}}" alt="Ad Image" style="max-width: 90%; max-height: 90%; border: 1px solid gray"/><br>
-        <button class="button" >Change</button>
-        <button class="button" ng-click="adEditor.changeImage = true">Remove</button>
+        <button class="button" id="changeAdImage">Change</button>
+        <button class="button" id="removeImage" ng-click="adEditor.noImage = true;">Remove</button>
     </div>
 
     <label for="adName">Title</label>
@@ -21,6 +21,12 @@
         <option ng-repeat="city in cityFilter.towns" value="{{city.id}}" ng-selected="city.name == adEditor.adToEdit.townName">{{city.name}}</option>
     </select>
 
+    <div style="display: none">
+        <input type="file" id="chosenImage" class="custom-file-input"/>
+        <input type="text" id="dataUrl" ng-model="adEditor.newImage" style="display: none"/>
+
+    </div>
+
     <span>Options: </span>
     <select style="display: inline-block" ng-model="adEditor.action">
         <option value="edit">Edit</option>
@@ -30,5 +36,36 @@
     </select>
 
     <button class="button" style="width: 100px" ng-click="adEditor.doAction()">GO</button>
-
 </div>
+
+<script>
+
+    function fileSelected(evt) {
+        var files = evt.target.files;
+        var type = '';
+        var fr = new FileReader();
+        fr.onload = function(event)
+        {
+            if(type.indexOf("image") == 0){
+                var d = event.target.result;
+                d = d.replace("data:;","data:" + type + ";");
+                console.log("<strong>Data URI: </strong>" + d);
+                document.getElementById('dataUrl').value =  d;
+                document.querySelector('.adImage img').src =  d;
+            }
+        };
+
+        for (var i = 0, f; f = files[i]; i++) {
+            var fileCopy = f.slice(0, f.size);
+            type = f.type;
+            if(f.type.indexOf("image") == 0)
+                fr.readAsDataURL(fileCopy); //on successful read, fr.onload function will be called and that will populate the result in fileContent container
+        }
+
+
+    }
+
+    //attach change event of file control
+    document.getElementById('chosenImage').onchange = fileSelected;
+
+</script>
