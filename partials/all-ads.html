@@ -1,6 +1,6 @@
 <div id="ads" ng-controller="AdListCtrl as adCtrl">
     <section class="ad" ng-repeat="ad in adCtrl.allAds">
-        <h2>{{ad.title}}</h2>
+        <h2>{{ad.title}}<span style="float: right;font-size: 14px;">{{ad.date.substr(0, 10)}}</span></h2>
 
         <a href="#/user/ads/edit/#{{ad.id}}" ng-click="adCtrl.editAd(ad.id)" ng-hide="adCtrl.publicAds" style="position:absolute;margin-top:-5px; margin-left: 430px; background: url('images/gear.png'); background-size: cover;height: 25px;display: inline-block;color: transparent;">Edit</a>
         <img ng-src="{{ad.imageDataUrl || 'images/no_image.png'}}" alt="No Image Found" onerror="noImage(this)"/>

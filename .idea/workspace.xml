@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91185c93-667f-4fe1-9018-20b70bbdf203" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers.js" afterPath="$PROJECT_DIR$/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/main.css" afterPath="$PROJECT_DIR$/styles/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partials/right-side-panel.html" afterPath="$PROJECT_DIR$/partials/right-side-panel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partials/all-ads.html" afterPath="$PROJECT_DIR$/partials/all-ads.html" />
     </list>
     <ignored path="Ads-SPA-SoftUni.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="89" selection-start="2715" selection-end="2715" vertical-scroll-proportion="0.7748918" vertical-offset="491" max-vertical-offset="9962">
+            <state line="71" column="89" selection-start="2715" selection-end="2715" vertical-scroll-proportion="-27.538462" vertical-offset="491" max-vertical-offset="9962">
               <folding />
             </state>
           </provider>
@@ -110,17 +105,19 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="26" selection-start="819" selection-end="819" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="612">
+            <state line="9" column="41" selection-start="374" selection-end="374" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all-ads.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="all-ads.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/partials/all-ads.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="54" selection-start="100" selection-end="106" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="391">
-              <folding />
+            <state line="17" column="6" selection-start="1380" selection-end="1380" vertical-scroll-proportion="0.30843115" vertical-offset="0" max-vertical-offset="937">
+              <folding>
+                <element signature="n#style#0;n#span#0;n#h2#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,11 +155,11 @@
         <option value="$PROJECT_DIR$/js/controllers/AdListCtrl.js" />
         <option value="$PROJECT_DIR$/js/controllers/RegisterCtrl.js" />
         <option value="$PROJECT_DIR$/js/controllers/AdminController.js" />
-        <option value="$PROJECT_DIR$/partials/all-ads.html" />
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/styles/main.css" />
         <option value="$PROJECT_DIR$/js/controllers.js" />
+        <option value="$PROJECT_DIR$/partials/all-ads.html" />
       </list>
     </option>
   </component>
@@ -327,7 +324,9 @@
     <entry file="file://$PROJECT_DIR$/partials/all-ads.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="54" selection-start="100" selection-end="106" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="391">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#h2#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -386,7 +385,9 @@
     <entry file="file://$PROJECT_DIR$/partials/all-ads.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="25" selection-start="1243" selection-end="1243" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="391">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#h2#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -434,7 +435,9 @@
     <entry file="file://$PROJECT_DIR$/partials/all-ads.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="285" selection-start="421" selection-end="425" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="340">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#h2#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -520,7 +523,9 @@
     <entry file="file://$PROJECT_DIR$/partials/all-ads.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="38" selection-start="806" selection-end="806" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1020">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#h2#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -591,7 +596,9 @@
     <entry file="file://$PROJECT_DIR$/partials/all-ads.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="56" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1003">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#h2#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -736,23 +743,9 @@
         <state line="14" column="17" selection-start="802" selection-end="802" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="408" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partials/all-ads.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="54" selection-start="100" selection-end="106" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="391">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/partials/admin-panel.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="91" selection-start="672" selection-end="677" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="867">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="26" selection-start="819" selection-end="819" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="612">
           <folding />
         </state>
       </provider>
@@ -811,8 +804,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="89" selection-start="2715" selection-end="2715" vertical-scroll-proportion="0.7748918" vertical-offset="491" max-vertical-offset="9962">
+        <state line="71" column="89" selection-start="2715" selection-end="2715" vertical-scroll-proportion="-27.538462" vertical-offset="491" max-vertical-offset="9962">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="41" selection-start="374" selection-end="374" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partials/all-ads.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="6" selection-start="1380" selection-end="1380" vertical-scroll-proportion="0.30843115" vertical-offset="0" max-vertical-offset="937">
+          <folding>
+            <element signature="n#style#0;n#span#0;n#h2#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
