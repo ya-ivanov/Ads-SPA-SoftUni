@@ -14,11 +14,35 @@
             self.adsToLoad;
             self.publicAds = true;
             self.currentPage = 1;
+            self.loadFromCategory = false;
             changeTitle('Ads - Home');
-
 
             self.getAllAds = function(){
                 $http.get(baseURL + "ads?pageSize=1&StartPage=" + self.currentPage, {headers:headers})
+                    .success(function(data){
+                        console.log(data);
+                        self.allAds = data.ads;
+                    })
+                    .error(function(data){
+                        console.error(data);
+                    }
+                );
+            };
+
+            self.getAllAdsFromCategory = function(){
+                $http.get(baseURL + "ads?categoryId=" + self.categoryToLoad + "&pageSize=1&StartPage=" + self.currentPage, {headers:headers})
+                    .success(function(data){
+                        console.log(data);
+                        self.allAds = data.ads;
+                    })
+                    .error(function(data){
+                        console.error(data);
+                    }
+                );
+            };
+
+            self.getAllUserAdsFromCategory = function(){
+                $http.get(baseURL + "user/ads?categoryId=" + self.categoryToLoad + "&pageSize=1&StartPage=" + self.currentPage, {headers:headers})
                     .success(function(data){
                         console.log(data);
                         self.allAds = data.ads;
@@ -45,7 +69,7 @@
                 if (type == '+') self.currentPage++;
                 else self.currentPage--;
 
-                $http.get(baseURL + (self.publicAds ? 'ads?' : "user/ads?") + "pageSize=1&StartPage=" + (self.currentPage), {headers:headers})
+                $http.get(baseURL + (self.publicAds ? 'ads?' : "user/ads?") + "pageSize=1&StartPage=" + (self.currentPage) + (self.loadFromCategory == true ? ('&categoryId=' + self.categoryToLoad) : ''), {headers:headers})
                     .success(function(data){
                         console.log(data);
                         self.allAds = [];
@@ -57,16 +81,32 @@
                 );
             };
 
-            if (window.location.hash == "#/user/ads"){
-                self.publicAds = false;
-                self.getAllUserAds();
-                self.adsToLoad = self.getAllUserAds;
+            if (window.location.hash.indexOf("/category") != -1){
+                self.loadFromCategory = true;
+                self.categoryToLoad = window.location.hash.substr(window.location.hash.indexOf("/category")+11);
             } else {
-                self.publicAds = true;
-                self.getAllAds();
-                self.adsToLoad = self.getAllAds;
+                self.loadFromCategory = false;
             }
 
+            if (window.location.hash.indexOf("/user/ads") != -1){
+                self.publicAds = false;
+                if (self.loadFromCategory == true){
+                    self.getAllUserAdsFromCategory();
+                    self.adsToLoad = self.getAllUserAdsFromCategory;
+                } else {
+                    self.getAllUserAds();
+                    self.adsToLoad = self.getAllUserAds;
+                }
+            } else {
+                self.publicAds = true;
+                if (self.loadFromCategory == true){
+                    self.getAllAdsFromCategory();
+                    self.adsToLoad = self.getAllAdsFromCategory;
+                } else {
+                    self.getAllAds();
+                    self.adsToLoad = self.getAllAds;
+                }
+            }
         }
     }]);
 
@@ -96,20 +136,17 @@
 
             self.logIn = function(){
                 if (self.username == "" || self.password == ""){
-                    showErrorMessage('Passwords don\'t match. -' + self.password + "-");
+                    showErrorMessage("Invalid username or password");
                 } else {
                     $http.post(baseURL + '/user/Login', JSON.stringify({
                             username: self.username,
                             password: self.password
                         })).success(function(data){
-                        localStorage.setItem('user-data', JSON.stringify(data));
-                        console.log(data);
-                        headers = {"Authorization" : "Bearer " +  data.access_token};
-
-
-                        reroute('#/home-logged');
-                        showInfoMessage('Successfully logged in.');
-
+                            localStorage.setItem('user-data', JSON.stringify(data));
+                            console.log(data);
+                            headers = {"Authorization" : "Bearer " +  data.access_token};
+                            reroute('#/home-logged');
+                            showInfoMessage('Successfully logged in.');
                     }).error(function(data){
                         console.error(data);
                     });
@@ -185,8 +222,28 @@
         self.getAllCategories = function(){
             $http.get(baseURL + 'categories').success(function(data){
                 self.categories = data;
+                self.checkForSelectedCategory();
             }).error(onError);
         }();
+
+        self.loadCategory = function(){
+            if (isLogged() && window.location.href.indexOf('user') != -1){
+                reroute('#user/ads/category/#' + self.selectedCategory);
+                window.location = window.location;
+            } else if (isLogged()){
+                reroute('#home-logged/category/#' + self.selectedCategory);
+                window.location = window.location;
+            } else
+                reroute('#home/category/#' + self.selectedCategory);
+                window.location.reload();
+        };
+
+        self.checkForSelectedCategory = function(){
+            if (window.location.hash.indexOf("/category") != -1){
+                self.selectedCategory = window.location.hash.substr(window.location.hash.indexOf("/category")+11);
+            }
+        }
+
     }]);
 
     adsControllers.controller('CityFilterCtrl', ['$http', function($http){

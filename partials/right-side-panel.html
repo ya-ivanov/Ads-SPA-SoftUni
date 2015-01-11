@@ -2,16 +2,16 @@
     <!-- Categories panel -->
     <div id="categoriesView" class="navView">
         <span>Categories</span>
-        <select ng-controller="CategoryFilterCtrl as categoryFilter">
-            <option ng-repeat="category in categoryFilter.categories" value="{{category.id}}">{{category.name}}</option>
+        <select ng-controller="CategoryFilterCtrl as categoryFilter" ng-model="categoryFilter.selectedCategory" ng-change="categoryFilter.loadCategory();">
+            <option ng-repeat="category in categoryFilter.categories" value="{{category.id}}" ng-selected="category.id == categoryFilter.selectedCategory">{{category.name}}</option>
         </select>
     </div>
 
     <!-- Towns panel -->
     <div id="townsView" class="navView">
         <span>Towns</span>
-        <select ng-controller="CityFilterCtrl as cityFilter">
-            <option ng-repeat="city in cityFilter.towns" value="{{city.id}}">{{city.name}}</option>
+        <select ng-controller="CityFilterCtrl as cityFilter" >
+            <option ng-repeat="city in cityFilter.towns" value="{{city.id}}" >{{city.name}}</option>
         </select>
     </div>
 </div>

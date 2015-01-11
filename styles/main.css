@@ -289,8 +289,6 @@ header li:hover{
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 
-
-
 #adminView section{
     width: 90%;
     display: block;
@@ -298,7 +296,15 @@ header li:hover{
     margin-top: 20px;
 }
 
+@media screen and (max-width: 970px) {
+    #wrapper {
+        width: 90%;
+    }
 
+    #wrapper #mainView, #wrapper #left-side-panel, #wrapper #right-side-panel{
+        width: 100%;
+    }
+}
 
 
 
