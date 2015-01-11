@@ -76,7 +76,7 @@
                         self.allAds = data.ads;
                     })
                     .error(function(data){
-                        console.error(data);
+                        showErrorMessage('No more pages that way.');
                     }
                 );
             };
